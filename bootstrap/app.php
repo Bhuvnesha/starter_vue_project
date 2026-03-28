@@ -18,6 +18,10 @@ return Application::configure(basePath: dirname(__DIR__))
 
         //
     })
+    ->withCommands([
+        App\Console\Commands\MakeCrud::class,
+    ])
     ->withExceptions(function (Exceptions $exceptions): void {
         //
     })->create();
+

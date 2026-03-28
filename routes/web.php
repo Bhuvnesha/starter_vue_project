@@ -34,3 +34,15 @@ Route::get('/', function () {
 Route::get('/', [HomeController::class, 'index']);
 
 require __DIR__.'/auth.php';
+
+
+// Product CRUD Routes
+Route::resource('products', \App\Http\Controllers\ProductController::class);
+Route::post('products/bulk-delete', [\App\Http\Controllers\ProductController::class, 'bulkDelete'])->name('products.bulkDelete');
+Route::get('products/export', [\App\Http\Controllers\ProductController::class, 'export'])->name('products.export');
+
+
+// Menu CRUD Routes
+Route::resource('menus', \App\Http\Controllers\MenuController::class);
+Route::post('menus/bulk-delete', [\App\Http\Controllers\MenuController::class, 'bulkDelete'])->name('menus.bulkDelete');
+Route::get('menus/export', [\App\Http\Controllers\MenuController::class, 'export'])->name('menus.export');
